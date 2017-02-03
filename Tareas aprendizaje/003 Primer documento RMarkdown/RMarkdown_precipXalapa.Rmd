@@ -1,0 +1,35 @@
+---
+title: "Mapa de percipitación de Xalapa"
+output: html_notebook
+---
+
+##Ejercicios usando **R Markdown**
+@equihuam Ya entendí, con esta interface se *estiliza* el texto usando la sintaxis de **Markdown** mientras trabajamos con **R**. 
+
+####Resumen estadístico de la precipitación del último año en Xalapa. En esta [página](http://smn.conagua.gob.mx/tools/RESOURCES/Diarios/30452.txt) sólo conseguí del año 2013, corresponde a la estación climatológica *30452_Briones*. En este otro [sitio](http://smn.cna.gob.mx/es/observando-el-tiempo/estaciones-meteorologicas-automaticas-ema-s) sólo hay datos disponibles de los últimos 90 días. 
+
+
+```{r}
+#TODO: Esta etiqueta es la breve para "To Do", es decir "pendiente" o "hay que hacer"
+# El uso de direcciones fijas es un problema cuando piensas en varias máquinas. Busca
+# usar referencias relativas como el uso del marcador "~" o poner todo en el mismo directorio
+# No compartiste el archivo de datos, así que no dispongo de la información que indicas aquí
+
+setwd("C:/Users/OPT9030-GBB/Google Drive/AmauriSR_Doctorado/12_Tareas_PROGRAMACIÓN")
+DPXd2013<-read.csv(file="PrecipXalapa2013_diaria.csv", header=TRUE, sep=",")
+names(DPXd2013)
+PRECIP<-DPXd2013$PRECIP_mm
+summary(PRECIP)
+sum(PRECIP)
+```
+
+
+####Gráfica sobre el comportamiento mensual de la precipitación en Xalapa para el año 2013. Los datos se descargaron de esta  [página](http://smn.conagua.gob.mx/tools/RESOURCES/Mensuales/ver/00030452.TXT)
+
+```{r}
+DPXm2013<-read.csv(file="PrecipXalapa2013_mensual.csv", header=TRUE, sep=",")
+names(DPXm2013)
+PRECIPmensual<-DPXm2013$PRECIP_total
+plot.ts(PRECIPmensual,xlab="MESES")
+```
+

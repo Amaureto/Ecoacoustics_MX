@@ -5,9 +5,7 @@ output:
   html_document: default
 ---
 
-####Ejercicio 4. Graficación con ggplot2 en R de la longitud media de 
-10 especies de ranas con puntos que varién por color según su coloració
-dominante el tamaño del punto varié según el peso promedio de la especie. 
+####Ejercicio 4. Graficación con ggplot2 en R de la longitud media de 10 especies de ranas con puntos que varién por color según su coloración dominante el tamaño del punto varié según el peso promedio de la especie. 
 
 
 #####Instalamos paquete ggplot2

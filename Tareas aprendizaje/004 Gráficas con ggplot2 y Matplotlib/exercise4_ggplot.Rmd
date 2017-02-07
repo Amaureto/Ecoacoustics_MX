@@ -1,0 +1,32 @@
+---
+title: "Gráfico de ranas usando ggplot"
+output:
+  html_notebook: default
+  html_document: default
+---
+
+####Ejercicio 4. Graficación con ggplot2 en R de la longitud media de 10 especies de ranas con puntos que varién por color según su coloración dominante el tamaño del punto varié según el peso promedio de la especie. 
+
+
+#####Instalamos paquete ggplot2
+install.packages("ggplot2")
+
+#####Establecemos directorio de trabajo
+setwd("C:/Users/Amaureto/Google Drive/AmauriSR_Doctorado/12_TAREAS_PROGRAMACIÓN/T004_ggplot2&Matplotlib"
+
+#####Cargamos el paquete y obtenemos ayuda con base en la documentación del paquete. 
+library(ggplot2)
+help.search("geom_text", package="ggplot2")
+
+
+####Cargamos los datos de peso, talla y color para 10 especies de ranas
+```{r}
+RanasPTC<-read.csv(file="Datos_PTC_10spp_Ranas.csv", header=TRUE, sep=",")
+#Obtenemos los nombres de los encabezados. 
+names(RanasPTC)
+```
+
+####Creamos el código para elaborar el gráfico
+```{r}
+ggplot(RanasPTC, aes(x = Especie, y = Longitud_media_mm, size = Peso_promedio_gr)) +geom_point(aes(colour=Color_dominante))+labs(x="Especies de Anuros", y="Longitud media (mm)", size="Peso promedio (gr)")+ylim(0,16)+ theme_classic()+theme(axis.text.x = element_text(angle=90, 20, vjust = 0.5, hjust=0, size = 9))+ geom_text(aes(label = No_individuos, size = 18, hjust=0.5, vjust=-2, position="stack"))+ scale_colour_manual(name="Color_dominante", values=c('Verde oscuro'='chartreuse4', 'Café'='tan4','Café oscuro'='orange4', 'Café medio'='tan3','Verde claro'='olivedrab2','Gris'='wheat3','Verde limón'='lawngreen','Café claro'='lightgoldenrod4','Verde'='green3','Dorado'='gold3')) +guides(colour=FALSE)
+```

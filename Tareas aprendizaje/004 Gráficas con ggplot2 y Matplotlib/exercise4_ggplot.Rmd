@@ -1,44 +1,66 @@
 ---
 title: "Gráfico de ranas usando ggplot"
 output:
-  html_notebook: default
   html_document: default
+  word_document: default
 ---
 
-####Ejercicio 4. Graficación con ggplot2 en R de la longitud media de 10 especies de ranas con puntos que varién por color según su coloración dominante el tamaño del punto varié según el peso promedio de la especie. 
+####Ejercicio 4. Graficación con ggplot2 en R
 
+El ejercicio consiste en graficar la longitud media de 10 especies de ranas con puntos que varién por color según su coloración dominante de la especie y el tamaño del punto varié según el peso promedio de la especie.
 
 #####Instalamos paquete ggplot2
-install.packages("ggplot2")
+No creo que sea necesario instalar *ggplot2* cada vez, así que sugiero omitir este segmento del texto. En varios casos olvidaste que el código R debe estar contenido en un bloque que produces con **Ctrl-Alt-I** (o con el botón verde con flecha amarilla que está arriba en el encabezado hacia la derecha). Toma nota de la forma como se indica el bloque de **cómputo**
 
 #####Establecemos directorio de trabajo
-setwd("C:/Users/Amaureto/Google Drive/AmauriSR_Doctorado/12_TAREAS_PROGRAMACIÓN/T004_ggplot2&Matplotlib"
+Sugiero poner los datos en el mismo directorio que el escript. **Sugiero omitir esta sección**.
+
+```{r}
+dir(".")
+```
 
 #####Cargamos el paquete y obtenemos ayuda con base en la documentación del paquete. 
+Me parece que esto lo puedes comentar, pero realmente desplegar la documentación no ayuda en nada a la lectura de tu reporte sobre las ranas. 
+
+```{r}
 library(ggplot2)
 help.search("geom_text", package="ggplot2")
+```
 
 
-####Cargamos los datos de peso, talla y color para 10 especies de ranas
+####Datos de peso, talla y color para 10 especies de ranas
+
+Sugiero poner esto en otro bloque o sección del texto pues no hay gran cosa que comentar aquí.  Insisto, usa markdown para escribir un reporte interesante que puede hacer cosas *en vivo con datos*, pero finalmente es un reporte o artículo. 
+
 ```{r}
-RanasPTC<-read.csv(file="Datos_PTC_10spp_Ranas.csv", header=TRUE, sep=",")
+RanasPTC <- read.csv(file="Datos_PTC_10spp_Ranas.csv", header=TRUE, sep=",");
+
 #Obtenemos los nombres de los encabezados. 
 names(RanasPTC)
 ```
 
 ####Creamos el código para elaborar el gráfico
+
+Había un exceso de comandos de formateo. Hay que procurar ser más directos y ordenados. En general también combiene tener las cosas que son datos o parámetros organizados en variables. Es lo que hice con la lista de colores. Un comando debe estar completo en una línea, a menos que haya un separador lógico presente (puntuación, "+", etc.). Ggplot2 usa el sistema de marcar sus opciones con "+", quizás como medio de sugerir que va añadiendo opciones a la preparación de la gráfica. Sólo cuida de usarla al final de comandos y no como las tenías, al inicio de ellos.
+
+
 ```{r}
-ggplot(RanasPTC, aes(x = Especie, y = Longitud_media_mm, 
-size = Peso_promedio_gr)) +geom_point(aes(colour=Color_dominante))
-+labs(x="Especies de Anuros", y="Longitud media (mm)", 
-size="Peso promedio (gr)")+ylim(0,16)+ theme_classic()
-+theme(axis.text.x = element_text(angle=90, 20, 
-vjust = 0.5, hjust=0, size = 9))
-+ geom_text(aes(label = No_individuos, size = 18, hjust=0.5, 
-vjust=-2, position="stack"))+ scale_colour_manual(name="Color_dominante",
-values=c('Verde oscuro'='chartreuse4', 'Café'='tan4',
-'Café oscuro'='orange4', 'Café medio'='tan3',
-'Verde claro'='olivedrab2','Gris'='wheat3',
-'Verde limón'='lawngreen','Café claro'='lightgoldenrod4',
-'Verde'='green3','Dorado'='gold3')) +guides(colour=FALSE)
+# correspondencia de colores
+mapa_de_colores <- c('Verde oscuro'='chartreuse4', 'Café'='tan4', 
+                    'Café oscuro'='orange4', 'Café medio'='tan3', 
+                    'Verdeclaro'='olivedrab2', 'Gris'='wheat3', 
+                    'Verde limón'='lawngreen', 'Café claro'='lightgoldenrod4',
+                    'Verde'='green3','Dorado'='gold3')
+
+# Prepara la gráfica en sus componentes generales
+graf <- ggplot(RanasPTC, aes(x = Especie, y = Longitud_media_mm, size = Peso_promedio_gr)) 
+
+# Agrega detalles y la arregla para su presentación final
+graf + geom_point(aes(colour=Color_dominante)) +
+  labs(x="Especies de Anuros", y="Longitud media (mm)", size="Peso promedio(gr)") +
+  ylim(0, 16) +
+  scale_colour_manual(name="Color_dominante", values = mapa_de_colores) + 
+  geom_text(aes(label = No_individuos, size = 18, hjust=0.5, vjust=-2, position="stack")) +
+  theme(axis.text.x = element_text(angle = 90, vjust = 0.5, hjust=0, size = 9)) +
+  guides(colour=FALSE)
 ```

@@ -1,6 +1,8 @@
 ---
 title: "Precipitación de Xalapa"
-output: html_notebook
+output:
+  html_notebook: default
+  html_document: default
 ---
 
 ## Ejercicios usando **R Markdown**

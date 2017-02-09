@@ -2,6 +2,7 @@
 title: "Gráfico de ranas usando ggplot"
 output:
   html_document: default
+  html_notebook: default
   word_document: default
 ---
 

@@ -1,0 +1,60 @@
+---
+title: "Precipitación en Xalapa"
+output:
+  html_notebook: default
+  html_document: default
+  pdf_document: default
+  word_document: default
+---
+
+Tarea de aprendizaje 3. Elaborar un documento de tipo **R Markdown** con el resumen estadístico de la precipitación del último año en Xalapa y una gráfica sobre su comportamiento mensual.
+
+### Resumen estadístico de la precipitación durante un año en Xalapa. 
+
+Se descargaron [datos](http://smn.conagua.gob.mx/tools/RESOURCES/Diarios/30452.txt) de precipitación diaria del año 2013. Los registros corresponden a la estación climatológica *30452_Briones* ubicada al sur de Xalapa.  
+
+```{r}
+#setwd("C:/Users/OPT9030-GBB/Google Drive/AmauriSR_Doctorado/12_Tareas_PROGRAMACIÓN")
+#Cargamos los datos desde un archivo tipo "csv" y visualizamos los encabezados. 
+DPXd2013<-read.csv(file="PrecipXalapa2013_diaria.csv", header=TRUE, sep=",")
+names(DPXd2013)
+```
+
+```{r}
+#Convertimos las columnas a objetos y aplicamos la función de resumen estadístico.
+PRECIP<-DPXd2013$PRECIP_mm
+summary(PRECIP)
+sum(PRECIP)
+```
+
+Resultados: La precipitación diaria promedio para Xalapa en 2013 fue de 6.12 mm en tanto que la precipitación total anual fue de `r sum(PRECIP)` mm. 
+
+======
+
+###Gráfica del comportamiento mensual de la precipitación en Xalapa para el año 2013. 
+
+Los datos mensuales se descargaron de esta [página](http://smn.conagua.gob.mx/tools/RESOURCES/Mensuales/ver/00030452.TXT)
+
+```{r}
+#Cargamos los datos y generamos un gráfico de líneas para observar las tendencias. 
+DPXm2013<-read.csv(file="PrecipXalapa2013_mensual.csv", header=TRUE, sep=",")
+#names(DPXm2013)
+PRECIPmensual<-DPXm2013$PRECIP_total
+plot.ts(PRECIPmensual,xlab="MESES")
+
+```
+
+Resultados: 
+Como se puede observar en el gráfico, el mes con mayor precipitación durante 2013 fue Septiembre, marcando el fin de la temporada de lluvias que comienza en Junio. 
+
+=======
+
+
+#####Comentarios libres
+1. @equihuam Ya entendí, con esta interfaz de Rstudio se *estiliza* el texto usando la sintaxis de **Markdown** mientras trabajamos con el lenguaje **R**. 
+2. No encontré un sitio para descargar datos del último año. En esta otra [página](http://smn.cna.gob.mx/es/observando-el-tiempo/estaciones-meteorologicas-automaticas-ema-s) sólo hay datos disponibles de los últimos 90 días.
+
+#####Recomendaciones
+1. Revisar la ayuda breve que está en “Help/Markdown Quick Reference”.
+2. Agregar los códigos usando la opción *insert chunk*.
+3. Utilizar la opción *preview Notebook* para generar una vista previa del archivo.

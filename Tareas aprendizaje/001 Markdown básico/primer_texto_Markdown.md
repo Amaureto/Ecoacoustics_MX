@@ -1,4 +1,4 @@
-Elaboración de un texto con la sintaxis de Markdown con encabezados, 5 nombres científicos italizados en un cuadro y la ecuación del índice de Shannon. Fecha de entrega: 30/enero/2017
+Tarea de aprendizaje 1. Elaboración de un texto con la sintaxis de Markdown con encabezados, 5 nombres científicos italizados en un cuadro y la ecuación del índice de Shannon. Fecha de entrega: 30/enero/2017
 
 # Anfibios anuros útiles para monitoreo acústico en los alrededores de Xalapa
 

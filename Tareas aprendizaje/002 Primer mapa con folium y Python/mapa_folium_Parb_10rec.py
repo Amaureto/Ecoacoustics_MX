@@ -42,7 +42,6 @@ Created on Sat Feb 2, 2017
 # Carga y prepara la biblioteca realmente sólo necesitas la de folium
 # la otra es para desplegar el mapa directamente.
 import folium
-from Python.display import HTML, display
 
 # Crea un objeto de tipo "mapa" y
 # centra la ventana en las coordenadas indicadas.
@@ -79,4 +78,4 @@ folium.Marker([19.45658, -97.046222], popup='10',
 P_arb_map
 
 # Guarda el objeto "mapa"
-P_arb_map.save('arborescandens10rec.html'
+P_arb_map.save('arborescandens10rec.html')

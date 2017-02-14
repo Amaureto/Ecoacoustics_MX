@@ -1,4 +1,4 @@
-No.,Familia,Especie,No_individuos,Longitud_media_mm,Peso_promedio_gr,Color_dominante
+No.,Familia,Especie,No_individuos,Longitud_media_cm,Peso_promedio_gr,Color_dominante
 1,Hylidae,C. taeniopus,8,9.494,48.94,Verde oscuro
 2,Craugastoridae,C. decoratus,1,2.5,30,Café 
 3,Craugastoridae,C. rhodopis,97,1.836,23.84,Café oscuro
@@ -9,4 +9,3 @@ No.,Familia,Especie,No_individuos,Longitud_media_mm,Peso_promedio_gr,Color_domin
 8,Bufonidae,I. valliceps,1,13.5,50.2,Café claro
 9,Ranidae,L. berlandieri,1,3.5,32,Verde
 10,Hylidae,P. arborescandens,27,2.767,32.44,Dorado
-

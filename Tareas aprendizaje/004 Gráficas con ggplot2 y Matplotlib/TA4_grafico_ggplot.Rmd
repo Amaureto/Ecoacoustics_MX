@@ -1,0 +1,71 @@
+---
+title: "GrÃ¡fico de ranas usando ggplot"
+output:
+  word_document: default
+  html_notebook: default
+  html_document: default
+---
+
+####Tarea de aprendizaje 4. Graficación con ggplot2 en R
+
+Instrucciones: El ejercicio consiste en graficar la longitud media de 10 especies de ranas con puntos que varién por color según su coloración dominante de la especie y el tamaño del punto varié según el peso promedio de la especie.
+
+####**Objetivos**: 
+1. Explorar y hacer uso de las herramientas que ofrece un archivo *RMarkdown* para insertar códigos y resultados en un documento sin perder la presentación del texto.  
+2. Visualizar un gráfico comparativo en función del peso promedio, longitud media y coloración dominante para 10 especies de ranas.  
+
+```{r}
+library(ggplot2)
+help.search("geom_text", package="ggplot2")
+```
+
+####**Métodos**:
+Para realizar el presente ejercicio se consultaron registros de anfibios obtenidos en el año 2012 durante colectas en la región Montañosa del Centro de Veracruz. Estos datos pertenecen a los proyectos de tesis de Maestría de Yocoyani Meza Parral y Amauri Sarmiento Rojas. Se seleccionaron únicamente aquellos registros de 10 especies de anuros con información de peso y talla, y se obtuvo el promedio de estas mediciones. 
+
+```{r}
+dir(".")
+```
+
+Con estos campos de datos se construyó una hoja de cálculo añadiendo información sobre la coloración dominante para cada especie de rana. 
+
+```{r}
+RanasPTC <- read.csv(file="Datos_PTC_10spp_Ranas.csv", header=TRUE, sep=",");
+
+#Obtenemos los nombres de los encabezados. 
+names(RanasPTC)
+```
+
+A cada coloración de rana, se le asignó el color correspondiente de acuerdo a la [paleta de colores de R](http://www.stat.columbia.edu/~tzheng/files/Rcolor.pdf).
+
+```{r}
+# correspondencia de colores
+mapa_de_colores <- c('Verde oscuro'='chartreuse4', 'Café '='tan4', 
+                    'Café oscuro'='orange4', 'Café medio'='tan3', 
+                    'Verdeclaro'='olivedrab2', 'Gris'='wheat3', 
+                    'Verde limón'='lawngreen', 'Café claro'='lightgoldenrod4',
+                    'Verde'='green3', 'Dorado'='gold3')
+```
+
+Para generar el gráfico de interés se utilizó el paquete [ggplot2](http://ggplot2.org/).
+
+```{r}
+# Prepara la gráfica en sus componentes generales
+graf <- ggplot(RanasPTC, aes(x = Especie, y = Longitud_media_cm, size = Peso_promedio_gr)) 
+
+# Agrega detalles y la arregla para su presentación final
+graf + geom_point(aes(colour=Color_dominante)) +
+  labs(x="Especies de Anuros", y="Longitud media (cm)", size="Peso promedio(gr)") +
+  ylim(0, 16) +
+  scale_colour_manual(name="Color_dominante", values = mapa_de_colores) + 
+  geom_text(aes(label = No_individuos, size = 20, hjust=0.5, vjust=-2)) +
+  theme(axis.text.x = element_text(angle = 90, vjust = 0.5, hjust=0, size = 9)) +
+  guides(colour=FALSE)
+```
+####**Resultados**
+La mayoría de las especies de anuros en la región montañosa del centro de Veracruz presentaron un tamaño pequeño, inferior a 5cm de longitud y por debajo de los 30 gr de peso. En contraste, la rana *Charadrahyla taeniopus* y el sapo *Incilius cristatus*, destacaron notablemente por su tamaño (9.5 y 13.5 cm, respectivamente) y por su peso cercano a los 50g. 
+Por otra parte, la coloración dominante en este conjunto de especies, abarca desde tonalidades verde claro hasta café oscuro. 
+
+
+####**Conclusiones**: 
+1. *RMarkdown* proporciona herramientas útiles para generar documentos o reportes sin apartarse de la sesión de programación. 
+2. El paquete *ggplot2* para R permite incorporar varias capas de información en un mismo gráfico y facilita la detección de patrones y posibles relaciones entre variables.  

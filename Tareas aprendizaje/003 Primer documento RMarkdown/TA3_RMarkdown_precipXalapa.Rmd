@@ -1,8 +1,8 @@
 ---
 title: "Precipitación en Xalapa"
 output:
-  html_document: default
   html_notebook: default
+  html_document: default
   pdf_document: default
   word_document: default
 ---
@@ -11,7 +11,7 @@ Tarea de aprendizaje 3. Elaborar un documento de tipo **R Markdown** con el resu
 
 ### Resumen estadístico de la precipitación durante un año en Xalapa. 
 
-Se descargaron [datos](http://smn.conagua.gob.mx/tools/RESOURCES/Diarios/30452.txt) de precipitación diaria del año 2013. Los registros corresponden a la estación climatológica *30452_Briones* ubicada al sur de Xalapa. Con la función *names* se localiza el nombre de la columna del *data.frame* que interesa para hacer el análisis solicitado.
+Se descargaron [datos](http://smn.conagua.gob.mx/tools/RESOURCES/Diarios/30452.txt) de precipitación diaria del año 2013. Los registros corresponden a la estación climatológica *30452_Briones* ubicada al sur de Xalapa.  
 
 ```{r}
 #setwd("C:/Users/OPT9030-GBB/Google Drive/AmauriSR_Doctorado/12_Tareas_PROGRAMACIÓN")
@@ -20,10 +20,8 @@ DPXd2013<-read.csv(file="PrecipXalapa2013_diaria.csv", header=TRUE, sep=",")
 names(DPXd2013)
 ```
 
-
 ```{r}
-# Para simplificar la lectura copia la columna de interés a un vector simple
-# para entonces aplicar la función de resumen estadístico.
+#Convertimos las columnas a objetos y aplicamos la función de resumen estadístico.
 PRECIP<-DPXd2013$PRECIP_mm
 summary(PRECIP)
 sum(PRECIP)

@@ -26,7 +26,7 @@ Me parece que esto lo puedes comentar, pero realmente desplegar la documentació
 
 ```{r}
 library(ggplot2)
-help.search("geom_text", package="ggplot2")
+#help.search("geom_text", package="ggplot2")
 ```
 
 
@@ -35,7 +35,7 @@ help.search("geom_text", package="ggplot2")
 Sugiero poner esto en otro bloque o sección del texto pues no hay gran cosa que comentar aquí.  Insisto, usa markdown para escribir un reporte interesante que puede hacer cosas *en vivo con datos*, pero finalmente es un reporte o artículo. 
 
 ```{r}
-RanasPTC <- read.csv(file="Datos_PTC_10spp_Ranas.csv", header=TRUE, sep=",");
+RanasPTC <- read.csv(file="Datos_PTC_10spp_Ranas.csv", header=TRUE, sep=",", strip.white = T);
 
 #Obtenemos los nombres de los encabezados. 
 names(RanasPTC)
@@ -43,12 +43,12 @@ names(RanasPTC)
 
 ####Creamos el código para elaborar el gráfico
 
-Había un exceso de comandos de formateo. Hay que procurar ser más directos y ordenados. En general también combiene tener las cosas que son datos o parámetros organizados en variables. Es lo que hice con la lista de colores. Un comando debe estar completo en una línea, a menos que haya un separador lógico presente (puntuación, "+", etc.). *Ggplot2* usa el sistema de marcar sus opciones con "+", quizás como medio de sugerir que va aÃ±adiendo opciones a la preparación de la gráfica. Sólo cuida de usarla al final de comandos y no como las tenías, al inicio de ellos.
+Había un exceso de comandos de formateo. Hay que procurar ser más directos y ordenados. En general también combiene tener las cosas que son datos o parámetros organizados en variables. Es lo que hice con la lista de colores. Un comando debe estar completo en una línea, a menos que haya un separador lógico presente (puntuación, "+", etc.). *Ggplot2* usa el sistema de marcar sus opciones con "+", quizás como medio de sugerir que va añadiendo opciones a la preparación de la gráfica. Sólo cuida de usarla al final de comandos y no como las tenías, al inicio de ellos.
 
 
 ```{r}
 # correspondencia de colores
-mapa_de_colores <- c('Verde oscuro'='chartreuse4', 'Café '='tan4', 
+mapa_de_colores <- c('Verde oscuro'='chartreuse4', 'Café'='tan4', 
                     'Café oscuro'='orange4', 'Café medio'='tan3', 
                     'Verdeclaro'='olivedrab2', 'Gris'='wheat3', 
                     'Verde limón'='lawngreen', 'Café claro'='lightgoldenrod4',

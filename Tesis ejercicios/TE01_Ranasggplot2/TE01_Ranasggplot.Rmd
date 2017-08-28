@@ -1,0 +1,84 @@
+---
+title: "TE1_ggplot_ranas"
+author: "Amauri Sarmiento Rojas"
+date: "28 de agosto de 2017"
+output: html_document
+---
+####Ejercicio de Tesis 1. Graficación con ggplot2 en R
+
+Instrucciones: El ejercicio consiste en graficar la longitud hocico-cloaca (SVL) de 12 especies de ranas. Los marcadores deben ser puntos que varían por color según la colocaración dominante de la especie y el tamaño del punto varía según el peso promedio de la especie.
+
+####**Objetivos**: 
+1. Visualizar un gráfico comparativo en función del peso promedio, LHC media y coloraciÓn dominante para 10 especies de ranas.  
+
+```{r}
+library(ggplot2)
+help.search("geom_text", package="ggplot2")
+```
+
+####**Métodos**:
+Los datos se obtuvieron de ejemplares capturados en campo durante mi muestreo de anfibios utilizando las técnicas de encuentros visuales y detección auditiva.
+
+```{r}
+dir(".")
+```
+
+Datos en el siguiente archivo:
+
+```{r}
+RanasPTC <- read.csv(file="DatosCorporales_12spAnfibios.csv", header=TRUE, sep=",");
+
+#Obtenemos los nombres de los encabezados. 
+names(RanasPTC)
+```
+
+A cada coloraciÃ³n de rana, se le asignÃ³ el color correspondiente de acuerdo a la [paleta de colores de R](http://www.stat.columbia.edu/~tzheng/files/Rcolor.pdf).
+
+```{r}
+# correspondencia de colores
+skincolors <- c("gray44", "rosybrown", "peru", "goldenrod4", "orange4", "rosybrown3", "darkgray", "orange1", "navajowhite3",
+"olivedrab2", "darkolivegreen", "olivedrab3")
+```
+
+Para generar el grÃ¡fico de interÃ©s se utilizÃ³ el paquete [ggplot2](http://ggplot2.org/).
+
+```{r}
+# Prepara la gráfica en sus componentes generales
+graf <- ggplot(RanasPTC, aes(x = "Scientific_name", y = "Lenght_mean", size="Weight_mean")) 
+
+# Agrega detalles y la arregla para su presentación final
+graf + geom_point(aes(colour="skincolors")) +
+  labs(x="Anuran Species", y="Mean Snout-Vent Lenght (cm)", size="Mean Weight (gr))") +
+  ylim(0, 16) +
+  scale_colour_manual(name="Skin Color", values = skincolors) + 
+  geom_text(aes(label = "Sample", size = 20, hjust=0.5, vjust=-2)) +
+  theme(axis.text.x = element_text(angle = 90, vjust = 0.5, hjust=0, size = 9)) +
+  guides(colour=FALSE)
+```
+####**Resultados**
+
+
+
+####**Conclusiones**: 
+1. El paquete *ggplot2* para R permite incorporar varias capas de información en un mismo gráfico y facilita la deteccón de patrones y posibles relaciones entre variables. 
+
+
+## R Markdown
+
+This is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see <http://rmarkdown.rstudio.com>.
+
+When you click the **Knit** button a document will be generated that includes both content as well as the output of any embedded R code chunks within the document. You can embed an R code chunk like this:
+
+```{r cars}
+summary(cars)
+```
+
+## Including Plots
+
+You can also embed plots, for example:
+
+```{r pressure, echo=FALSE}
+plot(pressure)
+```
+
+Note that the `echo = FALSE` parameter was added to the code chunk to prevent printing of the R code that generated the plot.

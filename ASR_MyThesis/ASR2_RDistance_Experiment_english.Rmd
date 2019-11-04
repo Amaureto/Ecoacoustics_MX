@@ -16,8 +16,8 @@ output:
   prettydoc::html_pretty:
     theme: leonids #supported themes are "cayman", "tactile", "architect", "leonids", and "hpstr"
   bookdown::pdf_book:
-bibliography: "ASR_PhD_library.bib" #specify a bibliography file
-biblio-style: apalike_es #set the bibliography style to use
+bibliography: "C:/Users/Amaureto/OneDrive - El Instituto de Ecología/ASR_PhD_Thesis/ASR_PhD_library.bib" #specify a bibliography file
+biblio-style: apalike #set the bibliography style to use
 citation_package: natbib #when the output is LaTeX/PDF use "natbib" to generate citations
 fig_caption: yes #figures rendered with captions
 fontsize: 12
@@ -82,13 +82,42 @@ pre {
 
 # INTRODUCTION
 
-Acoustic monitoring offers an efficient and effective method to assess biodiversity [@Riede1993]. Automated Recording Digital Systems (ADRS) constitute the fundamental equipment to record the sound environment at a specific site [@Acevedo2006]. Although there is a variety of acoustic sensors, it is necessary to improve the technique to achieve a greater representation of biodiversity and to know the resolution of the study, useful to predict and spatialize the patterns of acoustic activity. The probability of detecting an animal typically depends on its distance to the observer or the sensor [@Marques2013]. However, few studies have mentioned about the maximum range or the area covered by the recording devices [@Llusia2012]. It is relevant to consider that the reaching distance of the devices delimits the *detection space* of the soundscape or the acoustic community of interest. Sound energy, measured in decibels (dB) as amplitude, and that is commonly understood as sound intensity, decreases or attenuates when sound waves propagate in the medium. The sound attenuation phenomenon is due to three main factors: distance spreading, absorption of the medium (heat conduction, viscosity or losses due to molecular relaxation), and other phenomena of wave dispersion (reflection, refraction, diffraction and absorption by changes in the impedance of the medium) [@Sueur2018]. The absorption of the medium and the dispersion phenomena are difficult to model since they depend on several parameters such as frequency, humidity, temperature, pressure and physical properties of the obstacles that generate dispersion; on the contrary, spreading losses are easier to predict if there is a reference intensity (*iref*) and a reference distance (*dref*) [@Sueur2018].
+Acoustic monitoring offers an efficient and effective method to assess biodiversity [@Riede1993]. Automated Recording Digital Systems (ADRS) constitute the fundamental equipment to record the sound environment at a specific site [@Acevedo2006]; among the most important advantages it works to detect rara or secretive species, allows to carry out a more systematic and less intrusive sampling during extended periods of time. Although there is a variety of acoustic sensors, it is necessary to improve the technique to achieve a greater representation of biodiversity. To know the resolution of the acoustic sampling is specially important for those studies estimating abundance and density in occupancy modelling and very useful to predict and spatialize the patterns of acoustic activity. The probability of detecting an animal typically depends on its distance to the observer or the sensor [@Marques2013]. However, few studies have mentioned explicitly about the maximum range or the area covered by the recording devices [@Llusia2012].
+
+The reaching distance of the devices delimits the *detection space* of the soundscape or the acoustic community of interest. The theory says that, when sound spreads nearly hemispherically, its intensity decays like 1/R^2^, where R is the distance from the source [@Fletcher2014]. This phenomenon of decreasement in sound energy, which is measured in decibels (dB) as amplitude, is called attenuation. The sound attenuation phenomenon is due to three main factors: distance spreading, absorption of the medium (heat conduction, viscosity or losses due to molecular relaxation), and other phenomena of wave dispersion (reflection, refraction, diffraction and absorption by changes in the impedance of the medium) [@Sueur2018]. The absorption of the medium and the dispersion phenomena are difficult to model since they depend on several parameters such as frequency, humidity, temperature, pressure and physical properties of the obstacles that generate dispersion; on the contrary, spreading losses are easier to predict if there is a reference intensity (*iref*) and a reference distance (*dref*) [@Sueur2018].
 
 The amplitude of the signal at the source (*source level*) can be extremely different between species and cause marked differences in detection distances [@Llusia2012]. In addition, the sound loses power according to its frequency (measured in Hz); high-pitched tones (higher frequency) fade faster with distance and in contrast low-pitched tones (lower frequency) can travel longer [@Marten1977]. The structure and density of vegetation, topography and climatic variables (such as precipitation, wind speed, air temperature and ambient humidity), are some of the attributes of the site that can affect the transmission of sounds in the environment [@Aylor1972; @Marten1977]. On the other hand, among the characteristics of the microphone of the recorder that can intervene in the reception of the signal of interest are: the height above ground level, the orientation and/or the detection angle, as well as the microphone gain or level of recording.
 
-Therefore, the evaluation of the recording range is a fairly complex task, since many factors are involved in the transmission of the sounds, from the acoustic nature of the signal of interest and the geophysical attributes of the site, to the characteristics and configuration of the recording equipment. This study has applications in the field of Ecoacoustics research, which studies the ecological relevance of the wildlife sounds. 
+Therefore, the evaluation of the recording range is a fairly complex task, since many factors are involved in the transmission of the sounds, from the acoustic nature of the signal of interest and the geophysical attributes of the site, to the characteristics and configuration of the recording equipment.
 
-In this project, we aimed to evaluate through an experimental approach, the detection range of the omnidirectional microphone integrated into the automatic recorder *SWIFT*. In particular, we identified the maximum distance at which all the sounds of animals of different frequencies are captured. We studied the transmission of each signal of interest according to its frequency category and its expected attenuation. We analyzed the effect of the distance, the terrain slope, the canopy cover and the density of arboreal vegetation on the loss of the signals. Since the intensity of the sounds decreases with distance and this attenuation is favoured in the presence of barriers such as vegetation, we expected a greater loss of amplitude occurring in closer distances and in sites with higher canopy coverage and tree density. On the other hand, given the inverse relationship between the distance and the frequency of the signal, we expect that the sounds with high dominant frequency will be attenuated in closer distances.
+Most of the studies working with ARDS do not refer to the spatial extent of recording devices, but all of them consider that sampling units should be spaced far enough apart to minimize acoustic overlap, which means not recording the same individuals. But what is enough? They separarate recorders but apparently not based in any experimental study; the theoretical detection space is not mentioned even in user guides or in acoustic monitoring protocols.
+
+|Author|Distance between sampling units (recording points)|
+|:----|:--------------------|
+|@Alvarez-Berrios2016 | by more than 70 m | 
+|@Deichmann2017 | spaced 200 m |
+|@Depraetere2012 | at 300 m | 
+|@Farina2014c | at 80 m |
+|@Farina2014 | at 25 m |
+|@Frommolt2014 |more than 150 m |
+|@Gasc2013 |by 200 m  |
+|@Goyette2011 | more than 300 m |
+|@Lellouch2014  | at 300 m | 
+|@Mazaris2009 | at 350 m | 
+|@ParkerIII1991 | at 500 m 
+|@Pieretti2015 |  300 m |
+|@Pieretti2011 | at 100 m | 
+|@Sankupellay2015 | from 200 to 300 m|
+|@Shirose1997 | 500m |
+|@Tegeler2012 | 250-400m | 
+
+Some studies have compared traditional sampling methods (visual encounter and auditory surveys) considering, for example, 50 x 2-m transects  versus automated recording, the latter with a greater efficiency and detection range in a forested wetland @Acevedo2006. On the other hand, @Farina2014 detected variability of the soundscape at only 25m and assumed confirming the adequacy of this sampling scale despite their closeness.
+
+Other studies have evaluated the sampling area for some species, for example  
+@Aide2013 mentioned that based on informal experiments, ARBIMON recording systems can detect the common coqui frog (*Eleutherodactylus coqui*) in a forest habitat up to approximately 50 m, suggesting for this species the sampling area would be 
+approximately 1 ha.  
+
+In this project, we aimed to evaluate through an experimental approach, the detection range of the omnidirectional microphone integrated into the automatic recorder *SWIFT*. In particular, we identified the maximum distance at which all the sounds of animals of different frequencies are captured. We studied the transmission of each signal of interest according to its frequency category and its expected attenuation. We analyzed the effect of the distance, the terrain slope, the canopy cover and the density of arboreal vegetation on the loss of the signals. Since the intensity of the sounds decreases with distance and this attenuation is favoured in the presence of barriers such as vegetation, we expected a greater loss of amplitude occurring in closer distances and in sites with higher canopy coverage and tree density. On the other hand, given the inverse relationship between the distance and the frequency of the signal, we expect that the sounds with high dominant frequency will be attenuated in closer distances. This study has applications in the field of Ecoacoustics research, which studies the ecological relevance of the wildlife sounds. 
 
 # METHODS
 
@@ -119,16 +148,16 @@ We chose representatives of different taxonomic groups with vocalizations in dif
 
 
 ```{r load_Rpackages_for_sounds, echo=FALSE, message=FALSE, warning=FALSE, results='hide'}
-### Cargamos paquete "seewave" para análisis y síntesis de sonido
+### análisis y síntesis de sonido
 library("seewave")
 
-### "ggplot2" para visualización de datos y gráficos
+### visualización de datos y gráficos
 library("ggplot2")
 
-### "tuneR" para trabajar con archivos Wave
+### trabajar con archivos Wave
 library("tuneR")
 
-### "warbleR" para trabajar con archivos Wave
+### Bioacústica 
 library("warbleR")
 ```
 
@@ -440,7 +469,7 @@ legend("topright", inset=c(-0.0,0), legend=c(Species_10), cex=0.8, col=colors_sp
 EXPRD_bysite <- read.csv("EXP_RD_meandB_sites.csv", header=TRUE, sep=",")
 EXPRD_bysite
 
-#Sitio 1 (line-chart)------------------------
+#Site 1 (line-chart)------------------------
 
 # Create Line Chart
 par(mar=c(4.5,4,1,1), mgp=c(2.2,1,0))
@@ -459,7 +488,8 @@ lines(EXPRD_bysite$Distance[1:7], EXPRD_bysite$Mean_dB[1:7], lty="solid", lwd=3,
 
 par(font=3)
 text(15, 0, "Site 1", cex=1.5)
-# Sitio 2 (line-chart)-----
+
+# Site 2 (line-chart)-----
 
 # Create Line Chart
 par(font=1)
@@ -478,7 +508,7 @@ lines(EXPRD_bysite$Distance[8:14], EXPRD_bysite$Mean_dB[8:14], lty="solid", lwd=
 par(font=3)
 text(15, 0, "Site 2", cex=1.5)
 
-#Sitio 3 (line-chart)------
+#Site 3 (line-chart)------
 
 # Create Line Chart
 par(font=1)
@@ -498,7 +528,7 @@ par(font=3)
 text(15, 0, "Site 3", cex=1.5)
 
 
-#Sitio 4 (line-chart)-------------------------
+#Site 4 (line-chart)-------------------------
 
 # Create Line Chart
 par(font=1)
@@ -518,7 +548,7 @@ par(font=3)
 text(22, 0, "Site 4", cex=1.5)
 
 
-#Sitio 5 (line-chart)---------------------------
+#Site 5 (line-chart)---------------------------
 
 # Create Line Chart
 par(font=1)
@@ -538,7 +568,7 @@ par(font=3)
 text(20, 0, "Site 5", cex=1.5)
 
 
-#Sitio 6 (line-chart)-------------------------------------
+#Site 6 (line-chart)-------------------------------------
 
 # Create Line Chart
 par(font=1)
@@ -1160,30 +1190,39 @@ Now it would be interesting to graph the results. I hope that the anomaly you ha
 
 # DISCUSSION
 
-The maximum average distance at which most of the animal sounds of different frequencies are detected is 80 m, some sounds are attenuated and lost at 40m. As we expected, the high-frequency signals resulted in greater loss as the distance increases, these signals contain less pressure or less energy and tend to more easily degrade with obstacles.
+The maximum average distance at which most of the animal sounds of different frequencies were detected was 80 m. Knowing that omnidirectional microphones sample sounds with more or less equal efficiency in all directions, the detection range area is aproximately 0.64 ha.  
+
+In some researches have considering moving recorders to cover a more extended area [@Bardeli2010].
+
+As we expected, the high-frequency signals resulted in greater loss as the distance increases, one of the high-frequency sounds were attenuated and lost at 40m, these signals contain less pressure or less energy and tend to more easily degrade with obstacles. The foliage (increased leaf number density, leaf width and leaf thickness) reduces sound transmission specially at the higher frequencies and the ground attenuates considerable amounts of acoustic energy at lower frequencies and diverse forests attenuate nearly the same amount of sound [@Aylor1972].
 
 The evaluated site variables of terrain slope and vegetation had no significant effect _per se_ on attenuation. It would be interesting to study the effect of other topographic variables such as the terrain roughness, the orientation and the physiographic form of the site.
 
-The attenuation estimated by theory, than of vegetation in the detection of sounds.
+The attenuation estimated by theory which considered distance had more relevance than vegetation and slope in estimating the the detection distance of the recorder which is especially relevant for studies in which it is intended to record the sound remotely and autonomously. On the contrary, it was not the objective of this project to evaluate the transmission of sounds, which could require another type of experimental design.
 
-The main purpose of this project was to estimate the detection distance of the recorder which is especially relevant for studies in which it is intended to record the sound remotely and autonomously. On the contrary, it was not the objective of this project to evaluate the transmission of sounds, which could require another type of experimental design.
+In the wildlife, animals emit vocalizations at different heights and some of them are moving or changing their orientation when calling. 
 
-In the wildlife, animals emit vocalizations at different heights and some of them moves or change orientation while there are calling. 
+We considered it is important to mention the distance between recording stations.
 
 
-<span style = "color:red">**_Puntos a considerar:_**</span>
+
+
+
+ 
+
+<span style = "color:red">**_Other considerations:_**</span>
 
 The detection space may vary according to weather conditions such as temperature, humidity, wind and precipitation, in the field is not possible to control this environmental variables. 
 
-There is no reference control signal (pure tone of 1kHz at 94 dB SPL which is the pressure of 1 Pascal), based on this normalization would be performed.
+There was no reference control signal (pure tone of 1kHz at 94 dB SPL which is the pressure of 1 Pascal), based on this normalization would be performed.
 
-Review the frequency response of the horn, you may amplify certain frequencies further.
+Review the frequency response of the horn, because it would amplify certain frequencies further.
 
 Consider the sensitivity of the microphone (frequency response and gain).
 
 
-# CONCLUSIONS
 
+# CONCLUSIONS
 
 
 

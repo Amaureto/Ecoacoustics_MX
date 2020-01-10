@@ -3,16 +3,16 @@ title: <span style>"Assesment of the detection distance of an autonomous recordi
 author: "Amauri Sarmiento-Rojas, Miguel Equihua, Octavio Pérez-Maqueo, Brian Napoletano" #Orden de los autores por definir
 date: "`r format(Sys.time(), '%B %d, %Y')`"
 output:
-  pdf_document:
-    df_print: kable #enhance the default display of data frames
-    number_sections: yes
-    latex_engine: xelatex #available engines to render PDFs: 'pdflatex', 'xelatex', and 'lualatex' 
-  word_document: default
   html_document:
     highlight: tango #specifies the syntax highlighting style
     df_print: paged #tables are printed as HTML tables
     toc: true #add table of contents
     toc_float: true #float the table of contents to the left 
+  word_document: default
+  pdf_document:
+    df_print: kable #enhance the default display of data frames
+    number_sections: yes
+    latex_engine: xelatex #available engines to render PDFs: 'pdflatex', 'xelatex', and 'lualatex' 
   prettydoc::html_pretty:
     theme: leonids #supported themes are "cayman", "tactile", "architect", "leonids", and "hpstr"
   bookdown::pdf_book:
@@ -112,7 +112,7 @@ knitr::include_graphics("RD_studyarea.jpg")
 
 We evaluated the automatic recorder *SWIFT* which comes with a PUI Audio integrated microphone with an omnidirectional polar pattern (360° as detection angle) and a frequency response of 50 Hz to 16 KHz [@TheCornellLab2018]. We configured the device to record audio continuously, at a recording rate of 48 kHz and with a microphone gain set at 35 dB (default value).
 
-We carried an experiment to know the maximum recording distance (m), this consisted of reproducing a and re-recording a soundtrack containing prerecorded animals contrasting in their dominant frequency (that one with the highest energy). The detection space was considered as the reach distance from the signal source, in which its amplitude remains above a minimum detection threshold [@Brenowits1982]. 
+We carried an experiment to know the maximum recording distance (m), this consisted of reproducing a and re-recording a soundtrack containing prerecorded animals contrasting in their dominant frequency (that one with the highest energy). The detection space was considered as the reach distance from the signal source, in which its amplitude remains above a minimum detection threshold [@Brenowitz1982]. 
 
 ## *Animal sounds used for tests*
 We chose representatives of different taxonomic groups with vocalizations in different categories of dominant frequency: low, <2000 Hz; medium,> 2000 and <3000 Hz; and high, > 3000 Hz. The chosen sounds belong to ten species of vertebrate animals (three amphibians, one reptile, five birds and one mammal) (Figure\ref{fig:fig1_spectrogram}). These audios were reproduced in each transect at six distances (5, 20, 40, 60, 80 and 100 m) from the evaluated microphone. In the original audios, we measured its dominant frequency (Hz) and its reference amplitude (*iref*), measured in dB at a reference distance of 1m (*dref*); these were the base parameters to compare with the outputs from the analysis of the audios rewritten by the *SWIFT* device. In addition, to take into account the spectral complexity of the sound, we estimated the acoustic diversity index (ADI), which measures the signal entropy by measuring the acoustic activity occuring in 500 Hz-frequency bands [@Villanuevaetal2011]. This variable was calculated using ´r "soundecology" ´, an R library designed for acoustic analysis [@Villanueva2015]' (Table\ref{tab:tab1_sounds_10spp}).
@@ -147,11 +147,11 @@ windowsFonts(A = windowsFont("Times New Roman"))
 par(font=1, family="A")
 
 # 1.Open TIF file
-#tiff("espectrog.tif", width = 2400, height = 1400, units = "px")
-jpeg(filename = "espectrog.jpg",
-     width = 960, height = 480, units = "px", pointsize = 12,
-     quality = 100,
-     bg = "white")
+#tiff("espectrog.jpg", width = 2400, height = 1400, units = "px")
+#jpeg(filename = "espectrog.jpg",
+#     width = 960, height = 480, units = "px", pointsize = 12,
+#     quality = 100,
+#     bg = "white")
 
 
 # 2. Create figure
@@ -178,7 +178,7 @@ dev.off()
 
 ```{r fig2_spectrogram, message=FALSE, echo=FALSE, fig.align='center', fig.pos='H', fig.height=5, fig.width=8, fig.cap="Spectrogram of the selected audios for the experiment, belonging to the ten species of vertebrate animals.\\label{fig:fig2_spectrogram}"}
 par(mar=c(4.5,4.5,1,1))
-knitr::include_graphics("espectrog.tif") #show spectrogram
+knitr::include_graphics("espectrog.jpg") #show spectrogram
 ```
 
 
@@ -808,14 +808,19 @@ text(22, 0, "D. microcephalus", cex=1.5)
 ```{r ggplot_intento, eval=FALSE, echo=FALSE}
 library(ggplot2)
 #Intento fallido de hacer el gráfico anterior con ggplot
-ggplot(data=Species1, aes(x=Distance, y=Amplitude, group=Cat)) +
-  geom_line()+
-  geom_point()
-# Change line types
-ggplot(data=Species1, aes(x=Distance, y=Amplitude, group=Cat)) +
-  geom_line(linetype="solid", color="blue", size=1.2)+
-  geom_line(linetype="dashed", color="red", size=1.2)+
-  geom_point(color="red", size=3)
+
+# datos de las especies
+# Se necesitan los datos en "forma larga": los que están en EXP_RDIST 
+#suponiendo que los id de las especies corresponden con el renglón en el que están, simplemente esto:
+#EXP_RDIST$sp_nomb_cient <- tAudios_10sp$Nombre_científico[EXP_RDIST$Species]
+# Más seguro es usar las columnas donde están los índices que empatan así:
+EXP_RDIST <- merge(EXP_RDIST, tAudios_10sp[, c("Sp.", "Nombre_científico")], by.x = "Species" , by.y = "Sp.", all.x = TRUE, )
+
+# Este código produce algo semejante a lo de arriba. Use theme_bw pero hay otras varias opciones estéticas.
+ggplot(data=EXP_RDIST, aes(x=Distance, y=obs_Amplitude)) +  theme_bw() +
+  geom_line() + geom_line(data=EXP_RDIST, aes(x=Distance, y=Exp_Amplitude), color="blue", linetype = 2) +
+  facet_wrap(. ~ Nombre_científico, ncol = 2)
+
 ```
 
 
@@ -904,9 +909,58 @@ DATOS_PCA_res.pca <- prcomp(DATOS_PCA_res[,2:4], center = TRUE, scale. = TRUE)
 summary(DATOS_PCA_res.pca)
 ```
 
-```{r, echo=FALSE, results='hide', eval=FALSE, message=FALSE, warning=FALSE}
-library(devtools)
-install_github("vqv/ggbiplot")
+```{r, echo=FALSE, results='hide', message=FALSE, warning=FALSE}
+#library(devtools)
+#install_github("vqv/ggbiplot")
+# En lugar de esta biblioteca que no está siendo mantenida apropiadamente usar una adaptación de código
+# sugerido en: https://stackoverflow.com/questions/6578355/plotting-pca-biplot-with-ggplot2
+
+library(grid)
+
+PCbiplot <- function(PC, x="PC1", y="PC2") {
+    # PC es un objeto producido por la función prcomp, la matriz de vectores principales está en PC$x 
+    # cada columna con el nombre del componente a que corresponde como PC1 o PC2
+    # Crea un data frame con nombres de sitios y valores de los componentes principales
+    data <- data.frame(obsnames=row.names(PC$x), PC$x)
+    
+    #How much variation in the original data each principal component accounts for?
+    PC.var <- data.frame(t(pca$sdev^2)) #square of standard deviation 
+    names(PC.var) <- colnames(PC$x)
+    PC.var.per <- round(PC.var/sum(PC.var)*100, 1) #percentage of variation
+    
+    # Prepara la graficación de los PC de las variables contenidos en "rotation".
+    var_colors <- "green" # color de las flechas, puedes darle color distinto a cada uno: c("c1, "c2, etc)
+    datapc <- data.frame(varnames=rownames(PC$rotation), PC$rotation)
+    mult <- min((max(data[,y]) - min(data[,y])/(max(datapc[,y])-min(datapc[,y]))),
+                (max(data[,x]) - min(data[,x])/(max(datapc[,x])-min(datapc[,x]))))
+    
+    # Escala las flechas por razones estéticas, para que la subgráfica quepa en el área del gráfico
+    escala_flechas <- 0.7 # puede ser cualquier otro valor que haga verse mejor al biplot
+    datapc <- transform(datapc, v1 = escala_flechas * mult * (get(x)),
+                                v2 = escala_flechas * mult * (get(y)))
+    
+    # grafica las observaciones en los ejes principales (1 y 2 normalmente en "x" y "y" respectivamente). 
+    plot <- ggplot(data = data, aes_string(x = x, y = y)) + theme_bw() +
+      xlab(paste(x, " - ", PC.var.per[x], "%", sep="")) +
+      ylab(paste(y, " - ", PC.var.per[y], "%", sep="")) +
+      geom_text(alpha = 0.4, size = 3, aes(label = obsnames)) + 
+      geom_hline(aes(0, yintercept = 0), size = 0.2) + 
+      geom_vline(aes(0, xintercept = 0), size = 0.2) +
+
+      # Arma el biplot agregando las flechas vinculadas a las variables
+      coord_equal() + 
+        
+      # Grafica los segmentos centrados en el orígen del gráfico, coordenada (0, 0)
+      geom_segment(data = datapc, aes(x = 0, y = 0, xend = v1, yend = v2), 
+                   arrow = arrow(length = unit(0.2,"cm")), alpha = 0.75, color = var_colors) +
+      
+      # Agrega las etiquetas
+      geom_text(data = datapc, aes(x = v1, y = v2, label = varnames), 
+                size = 3, vjust = 1, color = var_colors)
+
+    plot
+}
+
 ```
 
 
@@ -915,11 +969,12 @@ install_github("vqv/ggbiplot")
 #36 Samples are rows
 #3 Variables are columns
 
-library(ggbiplot)
+#library(ggbiplot)
 
-ggbiplot(DATOS_PCA_res.pca, labels=rownames(DATOS_PCA_res)) + xlim(-2, 2) + theme_bw()
+#ggbiplot(DATOS_PCA_res.pca, labels=rownames(DATOS_PCA_res)) + xlim(-2, 2) + theme_bw()
 
 pca <- prcomp(Datos_PCA, scale=TRUE)
+PCbiplot(pca)
 
 
 ```

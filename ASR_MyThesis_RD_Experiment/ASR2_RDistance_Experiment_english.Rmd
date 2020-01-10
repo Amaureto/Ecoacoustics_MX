@@ -805,7 +805,7 @@ text(22, 0, "D. microcephalus", cex=1.5)
 ```
 
 
-```{r ggplot_intento, eval=FALSE, echo=FALSE}
+```{r ggplot_intento, echo=FALSE}
 library(ggplot2)
 #Intento fallido de hacer el gráfico anterior con ggplot
 

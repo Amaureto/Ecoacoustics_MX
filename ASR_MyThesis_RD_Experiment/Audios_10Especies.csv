@@ -1,0 +1,11 @@
+"","Sp.","Grupo","Nombre_común","Nombre_científico","Contenido","Autor_grabación","Duración_.s.","Amplitud_.dB.","Frecuencia_.Hz.","Categ._frecuencia","Valor_ADI"
+"1",1,"Reptiles","Morelet's Crocodile","Crocodylus morelletti","3 calls","SKPC",2.5,-28,387,"low",4.75533
+"2",2,"Amphibians","Cane Toad","Rhinella marina","1 trill","ASR",9,-3.5,657,"low",4.848605
+"3",3,"Mammals","Mantled Howler Monkey","Allouata palliata","2 calls","ASR",10,-16.8,779,"low",4.969426
+"4",4,"Birds","Keel-billed Toucan","Ramphastos sulfuratus","3 songs","ASR",2,-16.1,1721,"low",4.661756
+"5",5,"Birds","White-breasted Wood-wren","Henicorhina leucosticta","3 songs","FGG",8,-22.6,2507,"medium",4.034332
+"6",6,"Birds","Scarlet Macaw","Ara macao","2 calls","ASR",5,-24.6,2701,"medium",2.933826
+"7",7,"Birds","Montezuma Oropendola","Psarocolius montezuma","2 songs","ASR",8,-22.5,2809,"medium",4.969701
+"8",8,"Amphibians","Fleischmann's Glass Frog","Hyalinobatrachium fleischmanni","3 calls","ASR",3,-21.4,4062,"high",4.924673
+"9",9,"Birds","Common Vermilion Flycatcher","Pyrocephalus rubinus","3 songs","ASR",3.5,-36.4,5057,"high",4.305273
+"10",10,"Amphibians","Small-headed Treefrog","Dendropsophus microcephalus","3 calls","ASR",2,-30.3,6231,"high",2.665606

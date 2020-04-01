@@ -24,9 +24,9 @@ header-includes: >
 bibliography: ASR_PhD_library.bib
 output:
   
+  rticles::peerj_article: default
   bookdown::pdf_book:
     base_format: rticles::peerj_article # for using bookdown features like \@ref()
-  rticles::peerj_article: default
 ---
 
 
@@ -1167,7 +1167,6 @@ The main purpose of this project was to estimate the detection distance of the r
 1. Review the frequency response of the horn, you may amplify certain frequencies further.
 
 1. Consider the sensitivity of the microphone (frequency response and gain).
-
 
 
 # Acknowledgments {-}

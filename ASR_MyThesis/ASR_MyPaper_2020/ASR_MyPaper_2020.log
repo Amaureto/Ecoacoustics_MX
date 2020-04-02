@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019/W32TeX) (preloaded format=pdflatex 2020.2.12)  12 MAR 2020 14:41
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019/W32TeX) (preloaded format=pdflatex 2020.2.12)  2 APR 2020 00:10
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -958,35 +958,35 @@ Package microtype Info: Loading generic protrusion settings for font family
 ex.map}]
 
 Package hyperref Warning: The anchor of a bookmark and its parent's must not
-(hyperref)                be the same. Added a new anchor on input line 181.
+(hyperref)                be the same. Added a new anchor on input line 184.
 
 LaTeX Font Info:    Trying to load font information for OML+ptm on input line 2
-05.
+08.
 (c:/Users/Amauri/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/psnfss/omlptm.fd
 File: omlptm.fd 
 )
 LaTeX Font Info:    Font shape `OML/ptm/m/n' in size <10> not available
-(Font)              Font shape `OML/cmm/m/it' tried instead on input line 205.
+(Font)              Font shape `OML/cmm/m/it' tried instead on input line 208.
 <RD_studyarea.jpg, id=82, 889.4028pt x 474.0912pt>
 File: RD_studyarea.jpg Graphic file (type jpg)
 <use RD_studyarea.jpg>
-Package pdftex.def Info: RD_studyarea.jpg  used on input line 216.
+Package pdftex.def Info: RD_studyarea.jpg  used on input line 219.
 (pdftex.def)             Requested size: 415.12572pt x 221.28204pt.
 [2]
-<espectrog.jpg, id=98, 803.0pt x 501.875pt>
+<espectrog.jpg, id=97, 803.0pt x 501.875pt>
 File: espectrog.jpg Graphic file (type jpg)
 <use espectrog.jpg>
-Package pdftex.def Info: espectrog.jpg  used on input line 264.
+Package pdftex.def Info: espectrog.jpg  used on input line 267.
 (pdftex.def)             Requested size: 415.12572pt x 259.4602pt.
 [3 <./RD_studyarea.jpg>] [4 <./espectrog.jpg>]
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <8> not available
-(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 292.
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 295.
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <5> not available
-(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 292.
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 295.
 [5]
 
 Package hyperref Warning: The anchor of a bookmark and its parent's must not
-(hyperref)                be the same. Added a new anchor on input line 374.
+(hyperref)                be the same. Added a new anchor on input line 377.
 
 <ASR_MyPaper_2020_files/figure-latex/attenbysite-1.pdf, id=121, 433.62pt x 289.
 08pt>
@@ -994,7 +994,7 @@ File: ASR_MyPaper_2020_files/figure-latex/attenbysite-1.pdf Graphic file (type
 pdf)
 <use ASR_MyPaper_2020_files/figure-latex/attenbysite-1.pdf>
 Package pdftex.def Info: ASR_MyPaper_2020_files/figure-latex/attenbysite-1.pdf 
- used on input line 383.
+ used on input line 386.
 (pdftex.def)             Requested size: 415.12572pt x 276.76376pt.
 <ASR_MyPaper_2020_files/figure-latex/attenbyspp-1.pdf, id=122, 433.62pt x 289.0
 8pt>
@@ -1002,7 +1002,7 @@ File: ASR_MyPaper_2020_files/figure-latex/attenbyspp-1.pdf Graphic file (type p
 df)
 <use ASR_MyPaper_2020_files/figure-latex/attenbyspp-1.pdf>
 Package pdftex.def Info: ASR_MyPaper_2020_files/figure-latex/attenbyspp-1.pdf  
-used on input line 392.
+used on input line 395.
 (pdftex.def)             Requested size: 415.12572pt x 276.76376pt.
 
 Underfull \vbox (badness 4454) has occurred while \output is active []
@@ -1017,7 +1017,7 @@ File: ASR_MyPaper_2020_files/figure-latex/curvesxsite-1.pdf Graphic file (type
 pdf)
 <use ASR_MyPaper_2020_files/figure-latex/curvesxsite-1.pdf>
 Package pdftex.def Info: ASR_MyPaper_2020_files/figure-latex/curvesxsite-1.pdf 
- used on input line 401.
+ used on input line 404.
 (pdftex.def)             Requested size: 415.12572pt x 553.52756pt.
 
 Underfull \vbox (badness 3758) has occurred while \output is active []
@@ -1031,10 +1031,10 @@ File: ASR_MyPaper_2020_files/figure-latex/curvesxspp-1.pdf Graphic file (type p
 df)
 <use ASR_MyPaper_2020_files/figure-latex/curvesxspp-1.pdf>
 Package pdftex.def Info: ASR_MyPaper_2020_files/figure-latex/curvesxspp-1.pdf  
-used on input line 421.
+used on input line 424.
 (pdftex.def)             Requested size: 415.12572pt x 622.67882pt.
 
-LaTeX Warning: Float too large for page by 1.74622pt on input line 426.
+LaTeX Warning: Float too large for page by 1.74622pt on input line 429.
 
 <ASR_MyPaper_2020_files/figure-latex/PCAplot-1.pdf, id=173, 469.755pt x 325.215
 pt>
@@ -1042,10 +1042,10 @@ File: ASR_MyPaper_2020_files/figure-latex/PCAplot-1.pdf Graphic file (type pdf)
 
 <use ASR_MyPaper_2020_files/figure-latex/PCAplot-1.pdf>
 Package pdftex.def Info: ASR_MyPaper_2020_files/figure-latex/PCAplot-1.pdf  use
-d on input line 439.
+d on input line 442.
 (pdftex.def)             Requested size: 415.12572pt x 287.39594pt.
 LaTeX Font Info:    Font shape `OT1/phv/b/it' in size <9> not available
-(Font)              Font shape `OT1/phv/b/sl' tried instead on input line 447.
+(Font)              Font shape `OT1/phv/b/sl' tried instead on input line 450.
 [9] [10 <./ASR_MyPaper_2020_files/figure-latex/curvesxspp-1.pdf>] [11 <./ASR_My
 Paper_2020_files/figure-latex/PCAplot-1.pdf>] [12]
 <ASR_MyPaper_2020_files/figure-latex/Intercepts-1.pdf, id=215, 469.755pt x 325.
@@ -1054,7 +1054,7 @@ File: ASR_MyPaper_2020_files/figure-latex/Intercepts-1.pdf Graphic file (type p
 df)
 <use ASR_MyPaper_2020_files/figure-latex/Intercepts-1.pdf>
 Package pdftex.def Info: ASR_MyPaper_2020_files/figure-latex/Intercepts-1.pdf  
-used on input line 499.
+used on input line 502.
 (pdftex.def)             Requested size: 415.12572pt x 287.39594pt.
 [13
 
@@ -1062,24 +1062,24 @@ used on input line 499.
 ] [14 <./ASR_MyPaper_2020_files/figure-latex/Intercepts-1.pdf>] 
 AED: lastpage setting LastPage
 [15]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 705.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 705.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 719.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 719.
 (./ASR_MyPaper_2020.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 705.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 705.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 719.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 719.
 Package rerunfilecheck Info: File `ASR_MyPaper_2020.out' has not changed.
 (rerunfilecheck)             Checksum: 7608EAC63BAC90689D15D76ED608853A;3585.
 
 LaTeX Warning: There were multiply-defined labels.
 
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 705.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 719.
  ) 
 Here is how much of TeX's memory you used:
- 17401 strings out of 483161
- 269355 string characters out of 5963444
+ 17403 strings out of 483161
+ 269380 string characters out of 5963444
  664424 words of memory out of 5000000
  31775 multiletter control sequences out of 15000+600000
- 603375 words of font info for 290 fonts, out of 8000000 for 9000
+ 603293 words of font info for 290 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
  49i,12n,53p,507b,453s stack positions out of 5000i,500n,10000p,200000b,80000s
 {c:/Users/Amauri/AppData/Roaming/TinyTeX/texmf-dist/fonts/enc/dvips/base/8r.e
@@ -1097,10 +1097,10 @@ mbol/usyr.pfb><c:/Users/Amauri/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/u
 rw/times/utmb8a.pfb><c:/Users/Amauri/AppData/Roaming/TinyTeX/texmf-dist/fonts/t
 ype1/urw/times/utmr8a.pfb><c:/Users/Amauri/AppData/Roaming/TinyTeX/texmf-dist/f
 onts/type1/urw/times/utmri8a.pfb>
-Output written on ASR_MyPaper_2020.pdf (15 pages, 815643 bytes).
+Output written on ASR_MyPaper_2020.pdf (15 pages, 816649 bytes).
 PDF statistics:
- 333 PDF objects out of 1000 (max. 8388607)
- 287 compressed objects within 3 object streams
- 67 named destinations out of 1000 (max. 500000)
+ 337 PDF objects out of 1000 (max. 8388607)
+ 291 compressed objects within 3 object streams
+ 69 named destinations out of 1000 (max. 500000)
  52921 words of extra memory for PDF output out of 61914 (max. 10000000)
 
